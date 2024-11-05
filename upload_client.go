@@ -31,13 +31,12 @@ func generateRandomHeaders(req *http.Request) {
 		"Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
 	}
 
-	// 设置随机的 User-Agent
-	randomIndex := rand.Intn(len(userAgents))
-	req.Header.Set("User-Agent", userAgents[randomIndex])
+
+	req.Header.Set("User-Agent", userAgents[3])
 
 	// 设置其他动态 headers
-	req.Header.Set("X-Request-ID", fmt.Sprintf("%d", rand.Intn(100000)))   // 随机 Request ID
-	req.Header.Set("X-Client-Session", fmt.Sprintf("%d", rand.Intn(10000))) // 随机 Client Session
+	req.Header.Set("X-Request-ID", "520")
+	req.Header.Set("X-Client-Session", "520")
 }
 
 func sendOneGBData(client *http.Client, url string) error {
